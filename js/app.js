@@ -46,8 +46,14 @@ function addActiveClass(){
 };
 
 // Scroll to anchor ID using scrollTO event
-function scrollToAnchorId(){
-
+function scrollToAnchorId(event){
+    event.preventDefault();
+    const button = event.target;
+    const sectionId = button.getAttribute('href');
+    document.querySelector(sectionId).scrollIntoView({
+         behavior: 'smooth',
+         block: 'start'
+     })
 };
 
 
