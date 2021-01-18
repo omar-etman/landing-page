@@ -21,7 +21,22 @@
 
 // build the nav
 function buildTheNav(){
+// a function that creates li s with anchors linked to each section.
+     const sections = document.querySelectorAll('section');
 
+     const fragment = document.createDocumentFragment();
+     
+     for (section of sections) {
+         const listItem = document.createElement('li');
+         const anchorTag = document. createElement('a');
+         anchorTag.textContent = section.getAttribute('data-nav');
+         anchorTag.href = `#${section.id}`;
+         anchorTag.classList.add('menu__link');
+         listItem.appendChild(anchorTag);
+         fragment.appendChild(listItem);    
+     } 
+
+   document.getElementById('navbar__list').appendChild(fragment);
 
 };
 
@@ -52,3 +67,4 @@ document.addEventListener('click', scrollToAnchorId);
 
 // Set sections as active
 document.addEventListener('scroll', addActiveClass)
+
