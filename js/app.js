@@ -42,6 +42,15 @@ function buildTheNav(){
 
 // Add class 'active' to section when near top of viewport
 function addActiveClass(){
+    // to loop the your-active-class class over each section according to the scroll //
+    const sections = document.querySelectorAll('section');
+    for (section of sections){
+        window.scrollY;
+
+    }
+    
+    // 5.
+    // 4.state condition if scrolled upon  section (y coordinates)) active class is activated 
 
 };
 
@@ -50,10 +59,12 @@ function scrollToAnchorId(event){
     event.preventDefault();
     const button = event.target;
     const sectionId = button.getAttribute('href');
-    document.querySelector(sectionId).scrollIntoView({
-         behavior: 'smooth',
-         block: 'start'
-     })
+    if (sectionId){
+        document.querySelector(sectionId).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+    }
 };
 
 
