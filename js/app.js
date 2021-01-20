@@ -1,25 +1,3 @@
-
-/**
- * Define Global Variables
- * 
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
-// build the nav
 function buildTheNav(){
 // a function that creates li s with anchors linked to each section.
      const sections = document.querySelectorAll('section');
@@ -40,7 +18,6 @@ function buildTheNav(){
 
 };
 
-// Add class 'active' to section when near top of viewport
 function addActiveClass(){
     // to loop the your-active-class class over each section according to the scroll //
     const sections = document.querySelectorAll('section');
@@ -51,18 +28,15 @@ function addActiveClass(){
         const offsetBottom = offsetTop + dimension.height;
         if(window.scrollY > offsetTop && window.scrollY <  offsetBottom){
             section.classList.add('your-active-class');
-            
+
         }  
 
     }
-    
-    // 5.
-    // 4.state condition if scrolled upon  section (y coordinates)) active class is activated 
 
 };
 
-// Scroll to anchor ID using scrollTO event
 function scrollToAnchorId(event){
+    // Smooth Scroll to anchor function
     event.preventDefault();
     const button = event.target;
     const sectionId = button.getAttribute('href');
@@ -71,17 +45,12 @@ function scrollToAnchorId(event){
             behavior: 'smooth',
             block: 'start'
         })
+
     }
+
 };
 
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
+//build menu
 
 document.addEventListener('DOMContentLoaded', buildTheNav);
 
@@ -91,4 +60,3 @@ document.addEventListener('click', scrollToAnchorId);
 
 // Set sections as active
 document.addEventListener('scroll', addActiveClass)
-
