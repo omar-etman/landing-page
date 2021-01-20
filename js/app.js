@@ -44,8 +44,15 @@ function buildTheNav(){
 function addActiveClass(){
     // to loop the your-active-class class over each section according to the scroll //
     const sections = document.querySelectorAll('section');
+    const y = window.scrollY;
     for (section of sections){
-        window.scrollY;
+        const offsetTop = section.offsetTop
+        const dimension = section.getBoundingClientRect();
+        const offsetBottom = offsetTop + dimension.height;
+        if(window.scrollY > offsetTop && window.scrollY <  offsetBottom){
+            section.classList.add('your-active-class');
+            
+        }  
 
     }
     
