@@ -1,12 +1,11 @@
 # Landing Page Project
 
-## Table of Contents
+---------------
 
-* [Instructions](#instructions)
+this is a landing page project that has a dynamic adding sequence of classes and an interface that guides the user throughout the navigation process via javascript and manipulating the DOM.
 
-## Instructions
+---------------
 
-The starter project has some HTML and CSS styling to display a dynamic version of the Landing Page project. this project is converted from a static project to an interactive one. by modifying the HTML and CSS files, but primarily the JavaScript file.
+to open the page : run index.html
 
-to run the file : open index.html in your browser
-
+--------------

@@ -1,6 +1,8 @@
+let sections;
+
 function buildTheNav(){
 // a function that creates li s with anchors linked to each section.
-     const sections = document.querySelectorAll('section');
+     sections = document.querySelectorAll('section');
 
      const fragment = document.createDocumentFragment();
      
@@ -10,6 +12,7 @@ function buildTheNav(){
          anchorTag.textContent = section.getAttribute('data-nav');
          anchorTag.href = `#${section.id}`;
          anchorTag.classList.add('menu__link');
+         anchorTag.id = `${section.id}link`
          listItem.appendChild(anchorTag);
          fragment.appendChild(listItem);    
      } 
@@ -25,10 +28,16 @@ function addActiveClass(){
     for (section of sections){
         const offsetTop = section.offsetTop
         const dimension = section.getBoundingClientRect();
+        const navHeight = document.querySelector('header').getBoundingClientRect().height;
         const offsetBottom = offsetTop + dimension.height;
-        if(window.scrollY > offsetTop && window.scrollY <  offsetBottom){
+        if(window.scrollY + navHeight > offsetTop && window.scrollY + navHeight <  offsetBottom){
+            const activeClass = document.querySelector('.menu__link--active')
+            if(activeClass){
+                activeClass.classList.remove('menu__link--active');
+            }
             section.classList.add('your-active-class');
-
+            const sectionHref = `#${section.id}`;
+            document.querySelector(`#${section.id}link`).classList.add('menu__link--active');
         }  
 
     }
